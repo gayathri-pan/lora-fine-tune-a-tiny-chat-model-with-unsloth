@@ -174,11 +174,20 @@ def build_sft_trainer(model, tokenizer, dataset, training_args, max_seq_length=2
     # TODO: wire model, tokenizer, dataset, and training_args into an SFTTrainer
     return SFTTrainer(model=model, train_dataset=dataset, tokenizer=tokenizer, max_seq_length=max_seq_length, args=training_args)
 
-# Step 17 - run_sft_training (not yet solved)
-# TODO: implement
+# Step 17 - run_sft_training
+def run_sft_training(trainer):
+    """Run a few SFT steps and return the final training loss as a float."""
+    # TODO: drive the trainer through its short optimization run and return the final loss
+    result = trainer.train()
+    final_training_loss = train_result.training_loss
+    return final_training_loss
 
-# Step 18 - switch_to_inference_mode (not yet solved)
-# TODO: implement
+# Step 18 - switch_to_inference_mode
+def switch_to_inference_mode(model):
+    """Switch the LoRA-tuned model into Unsloth's fast inference mode and return it."""
+    # TODO: call the Unsloth helper that prepares the model for fast generation
+    FastLanguageModel.for_inference(model)
+    return model
 
 # Step 19 - build_chat_prompt (not yet solved)
 # TODO: implement
